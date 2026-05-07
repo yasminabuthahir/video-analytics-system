@@ -1,0 +1,31 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8000
+  },
+  "cameras": [
+    {
+      "camera_id": "cam_01",
+      "name": "Front Entrance",
+      "source": "test_video.mp4",
+      "enabled": true,
+      "modules": {
+        "people_counter": true,
+        "intrusion_detector": true,
+        "face_recognizer": true,
+        "privacy_masker": true
+      },
+      "intrusion_roi": [100, 100, 500, 400],
+      "model_path": "models/yolov8n.pt",
+      "confidence_threshold": 0.5
+    }
+  ],
+  "face_recognition": {
+    "known_faces_dir": "known_faces",
+    "similarity_threshold": 0.7
+  },
+  "output": {
+    "alerts_db": "outputs/alerts.db",
+    "save_snapshots": false
+  }
+}
