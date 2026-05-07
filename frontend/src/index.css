@@ -1,0 +1,86 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+.app-shell { display: flex; min-height: 100vh; }
+.page-content { flex: 1; padding: 2rem; overflow-y: auto; }
+
+/* Cards */
+.card {
+  background: #1a1f2e;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: #3b82f6; color: white; }
+.btn-danger  { background: #ef4444; color: white; }
+.btn-success { background: #10b981; color: white; }
+.btn-ghost   { background: transparent; border: 1px solid #4a5568; color: #e2e8f0; }
+
+/* Inputs */
+input, select {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+}
+input:focus, select:focus { border-color: #3b82f6; }
+
+/* Grid */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-red    { background: #7f1d1d; color: #fca5a5; }
+.badge-green  { background: #14532d; color: #86efac; }
+.badge-blue   { background: #1e3a5f; color: #93c5fd; }
+.badge-gray   { background: #374151; color: #9ca3af; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #2d3748; font-size: 0.9rem; }
+th { color: #94a3b8; font-weight: 600; }
+tr:hover td { background: #1e2535; }
+
+h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem; }
+h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+label { display: block; font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.3rem; }
+.form-group { margin-bottom: 1rem; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.text-muted { color: #64748b; font-size: 0.85rem; }
+.text-danger { color: #f87171; }
