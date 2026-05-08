@@ -4,15 +4,15 @@ A production-grade, multi-camera intelligent video analytics platform built with
 
 ---
 
-## 📸 Demo
+## Demo
 
 > `[▶ Watch Demo](https://youtube.com/your-link-here)`
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔍 Analytics Modules
+### Analytics Modules
 | Module | Description |
 |---|---|
 | **People Counter** | Detects and counts persons in frame using YOLOv8 |
@@ -32,7 +32,7 @@ A production-grade, multi-camera intelligent video analytics platform built with
 - **Alert persistence** — intrusion alerts saved to SQLite with timestamp, person label, people count, and JPEG snapshot
 - **Role-based auth** — JWT authentication with admin and viewer roles
 
-### 🎨 Frontend (React)
+### Frontend (React)
 - Login with configurable backend URL — connect to any IP:port on your network
 - Live dashboard — real-time people count, face count, active cameras
 - Camera configuration — toggle modules per camera with live toggle switches
@@ -106,7 +106,7 @@ video-analytics-system/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.10+
@@ -213,7 +213,7 @@ Edit `config.json` to add cameras:
 
 ---
 
-## 🗃️ Alert Schema
+## Alert Schema
 
 Each intrusion alert stored in SQLite contains:
 
