@@ -8,6 +8,8 @@ README.md
 *.jpg*
 *.json*
 *.txt*
+README.md
+config.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
