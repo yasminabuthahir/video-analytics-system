@@ -116,15 +116,15 @@ export default function CameraConfig() {
                   </div>
 
                   <p className="text-muted" style={{ marginBottom: 8 }}>
-                    {cam.intrusion_rois?.length
-                      ? `${cam.intrusion_rois.length} zone(s) defined`
+                    {cam.intrusion_roi?.length
+                      ? `${cam.intrusion_roi.length} zone(s) defined`
                       : "No zones defined yet"}
                   </p>
 
                   {roiExpanded[cam.camera_id] && (
                     <ROIDrawer
                       cameraId={cam.camera_id}
-                      existingRois={(cam.intrusion_rois || []).map(pts => ({ points: pts }))}
+                      existingRois={(cam.intrusion_roi || []).map(pts => ({ points: pts }))}
                       onSaved={() => fetchConfig()}
                     />
                   )}

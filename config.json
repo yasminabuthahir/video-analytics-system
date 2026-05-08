@@ -15,9 +15,34 @@
         "face_recognizer": true,
         "privacy_masker": true
       },
-      "intrusion_roi": [100, 100, 500, 400],
       "model_path": "models/yolov8n.pt",
-      "confidence_threshold": 0.5
+      "confidence_threshold": 0.5,
+      "intrusion_roi": [
+        76,
+        71,
+        217,
+        213
+      ]
+    },
+    {
+      "camera_id": "cam_02",
+      "name": "Home",
+      "source": "shake.mp4",
+      "enabled": true,
+      "modules": {
+        "people_counter": true,
+        "intrusion_detector": true,
+        "face_recognizer": true,
+        "privacy_masker": true
+      },
+      "model_path": "models/yolov8n.pt",
+      "confidence_threshold": 0.5,
+      "intrusion_roi": [
+        120,
+        193,
+        455,
+        942
+      ]
     }
   ],
   "face_recognition": {

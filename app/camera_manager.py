@@ -13,7 +13,6 @@ class CameraStream:
         self.lock = threading.Lock()
 
     def start(self):
-        # source: int for webcam, string for file or rtsp
         src = self.source if isinstance(self.source, int) else str(self.source)
         self.cap = cv2.VideoCapture(src)
         if not self.cap.isOpened():
@@ -29,16 +28,23 @@ class CameraStream:
         while self.running:
             ret, frame = self.cap.read()
             if not ret:
-                # For video files, loop back to start
                 self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
                 continue
             with self.lock:
                 self.frame = frame
-            time.sleep(0.01)  # ~100fps cap, CPU friendly
+            time.sleep(0.01)
 
     def get_frame(self):
         with self.lock:
             return self.frame.copy() if self.frame is not None else None
+
+    def get_snapshot(self):
+        """Returns a single JPEG-encoded frame for the ROI tool."""
+        frame = self.get_frame()
+        if frame is None:
+            return None
+        _, buf = cv2.imencode(".jpg", frame)
+        return buf.tobytes()
 
     def stop(self):
         self.running = False

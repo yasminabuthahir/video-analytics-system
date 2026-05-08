@@ -12,6 +12,7 @@ export default function ROIDrawer({ cameraId, existingRois = [], onSaved }) {
   const [hoverPos, setHoverPos] = useState(null);
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(true);
+  const [frameSize, setFrameSize] = useState({ w: 640, h: 360 });
 
   // Load camera frame as background
   useEffect(() => {
@@ -24,10 +25,11 @@ export default function ROIDrawer({ cameraId, existingRois = [], onSaved }) {
       .then(blob => {
         const url = URL.createObjectURL(blob);
         const img = new Image();
-        img.onload = () => {
-          setImgEl(img);
-          setLoading(false);
-        };
+            img.onload = () => {
+              setImgEl(img);
+              setFrameSize({ w: img.naturalWidth, h: img.naturalHeight });
+              setLoading(false);
+            };
         img.src = url;
       })
       .catch(() => setLoading(false));
@@ -166,11 +168,19 @@ export default function ROIDrawer({ cameraId, existingRois = [], onSaved }) {
       for (let i = existing - 1; i >= 0; i--) {
         await api.delete("/config/roi", { data: { camera_id: cameraId, roi_index: i } });
       }
+      const canvas = canvasRef.current;
+      const scaleX = frameSize.w / canvas.width;
+      const scaleY = frameSize.h / canvas.height;
+
       for (let i = 0; i < rois.length; i++) {
+        const scaledPoints = rois[i].points.map(([x, y]) => [
+          Math.round(x * scaleX),
+          Math.round(y * scaleY)
+        ]);
         await api.post("/config/roi", {
           camera_id: cameraId,
           roi_index: i,
-          points: rois[i].points
+          points: scaledPoints
         });
       }
       setMsg(`${rois.length} ROI(s) saved and applied.`);

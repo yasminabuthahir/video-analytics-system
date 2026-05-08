@@ -3,10 +3,21 @@ from datetime import datetime
 
 
 class IntrusionDetector:
-    def __init__(self, roi: list):
-        # roi = [x1, y1, x2, y2]
-        self.roi = roi
-        self.alerts = []
+    def __init__(self, roi):
+            def flatten(obj):
+                """Recursively flatten any nested list to plain integers."""
+                if isinstance(obj, list):
+                    for item in obj:
+                        yield from flatten(item)
+                else:
+                    yield int(obj)
+
+            flat = list(flatten(roi))
+            # flat is now [x1,y1, x2,y2, x3,y3, ...] — all coordinates in order
+            xs = flat[0::2]
+            ys = flat[1::2]
+            self.roi = [min(xs), min(ys), max(xs), max(ys)]
+            self.alerts = []
 
     def _is_inside_roi(self, bbox):
         px1, py1, px2, py2 = bbox
