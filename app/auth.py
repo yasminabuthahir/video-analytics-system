@@ -3,8 +3,8 @@ import os
 from datetime import datetime, timedelta
 from passlib.context import CryptContext
 from jose import JWTError, jwt
-
-SECRET_KEY = "vas-analytics-secret-key-2025"
+import os
+SECRET_KEY = os.environ.get("SECRET_KEY", "change-this-in-production")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 8  # 8 hours
 
