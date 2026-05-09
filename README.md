@@ -1,6 +1,6 @@
 # 🎥 Video Analytics System
 
-A production-grade, multi-camera intelligent video analytics platform built with Python, FastAPI, YOLOv8, FaceNet, and React. Designed for real-world deployment on edge hardware (RKNN/Ambarella boards) and standard CPU/GPU machines.
+A production-grade, multi-camera intelligent video analytics platform built with Python, FastAPI, YOLOv8, FaceNet, and React. Designed for real-world deployment on standard CPU/GPU machines.
 
 ---
 
@@ -27,7 +27,6 @@ A production-grade, multi-camera intelligent video analytics platform built with
 - **Multi-camera support** — run multiple cameras concurrently, each with independent module configuration
 - **Config-driven architecture** — single `config.json` controls all cameras, modules, model paths, ROI zones, and API ports
 - **Runtime hot-reload** — toggle modules and update ROI zones from the frontend without restarting the backend
-- **Edge deployment ready** — packaged for RKNN and Ambarella NPU/CPU/GPU boards running Linux
 - **REST API** — FastAPI backend exposes detection results, alert history, and config endpoints
 - **Alert persistence** — intrusion alerts saved to SQLite with timestamp, person label, people count, and JPEG snapshot
 - **Role-based auth** — JWT authentication with admin and viewer roles
